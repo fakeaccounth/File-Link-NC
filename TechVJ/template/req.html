@@ -3,8 +3,10 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="https://i.pinimg.com/736x/af/72/1a/af721af8334980d6f0095513db70a2f5.jpg" type="image/x-icon">
-    <meta property="og:image" content="https://i.pinimg.com/736x/af/72/1a/af721af8334980d6f0095513db70a2f5.jpg" itemprop="thumbnailUrl">
+    <link rel="shortcut icon" href="https://i.pinimg.com/736x/af/72/1a/af721af8334980d6f0095513db70a2f5.jpg"
+        type="image/x-icon">
+    <meta property="og:image" content="https://i.pinimg.com/736x/af/72/1a/af721af8334980d6f0095513db70a2f5.jpg"
+        itemprop="thumbnailUrl">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{file_name}} | NC</title>
@@ -31,6 +33,7 @@
             width: 600px;
             background: #1f2937;
             border-radius: 10px;
+            max-height: screen;
         }
 
         @media (max-width:635px) {
@@ -81,11 +84,11 @@
 
         .contact-div {
             text-align: center;
-            padding:10px 0 20px 0;
+            padding: 10px 0 20px 0;
         }
 
         .footer {
-            padding: 20px;
+            padding: 12px;
             text-align: center;
             position: fixed;
             bottom: 0;
@@ -121,7 +124,7 @@
     <header>
         <!-- Navbar -->
         <nav class="navbar border-b border-gray-700 mb-4">
-            <div class="container-fluid text-center p-2 text-2xl">
+            <div class="container-fluid text-center p-1 text-xl">
                 <a class="navbar-brand" href="https://telegram.me/NC_Owner_bot">
                     <span class="">
                         NC STREAMING
@@ -140,7 +143,7 @@
             <div class="justify-content-center align-items-center w-100 d-flex p-2">
                 <div id="file-name" class="text-center">
                     <span id="myDiv" class="text-center">
-                        {{file_name}}
+                        {{ file_name | slice:":25" }}...
                     </span>
                 </div>
             </div>
@@ -192,7 +195,7 @@
                     </p>
                 </div>
             </div>
-            <div class="justify-content-center align-items-center w-100 d-flex mb-3">
+            <div class="justify-content-center align-items-center w-100 d-flex mb-2">
                 <div class="row d-flex w-100 justify-content-center align-items-center">
                     <div class="Video-div">
                         If Video Not Playing Or Sound Not Coming then Choose Players that support The File Format.
@@ -208,7 +211,7 @@
 
     <div>
         <footer class="footer border-t border-gray-700">
-            <div class="text-[16px] text-gray-500 p-1 gap-2">
+            <div class="text-[14px] text-gray-500">
                 All Right Reserved
                 <a class="" href="https://telegram.me/NC_Owner_bot">NC Streaming</a>
                 Made With love ❤️
