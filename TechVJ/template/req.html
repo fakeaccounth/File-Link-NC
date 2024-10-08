@@ -78,6 +78,14 @@
         .footer a:hover {
             color: #fff;
         }
+
+        body {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Edge */
+        }
+
     </style>
 </head>
 
@@ -86,7 +94,7 @@
         <!-- Navbar -->
         <nav class="navbar">
             <div class="container-fluid text-center p-4 text-2xl ">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="https://t.me/Noob_Studio_Chat">
                     <span class="bg-gradient" style="font-weight: 600;">
                         NC Streaming
                     </span>
@@ -168,7 +176,7 @@
                 <div class="row d-flex w-100 justify-content-center align-items-center">
                     <div
                         class="col-lg-5 col-10 py-2 text-center bg-success rounded-4 text-sm wow animate__animated animate__FadeIn">
-                        If you find any broken links then please contact <a href="#"
+                        If you find any broken links then please contact <a href="https://t.me/Noob_Studio_Chat"
                             class="text-[16px] font-bold underline active:text-blue-600">Nc</a>
                     </div>
                 </div>
@@ -187,7 +195,7 @@
                             document.write(theDate.getFullYear())
                         </script> Copyright :
                         <a class="bg-clip-text text-[16px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold tracking-wide px-1"
-                            href="#">NC Streaming</a>
+                            href="https://t.me/Noob_Studio_Chat">NC Streaming</a>
 
                         All right reserved
                     </div>
@@ -277,6 +285,14 @@
                 const openLazyLink = lazyLink;
                 window.location.href = openLazyLink;
             }
+        </script>
+        <script>
+            document.addEventListener('contextmenu', event => event.preventDefault());
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                    event.preventDefault();
+                }
+            });
         </script>
     </div>
 </body>
