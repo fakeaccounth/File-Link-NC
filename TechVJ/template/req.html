@@ -13,22 +13,24 @@
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.9/plyr.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit&family=Signika+Negative:wght@300..700&display=swap');
+
         body {
-            background-color: #001f3f;
+            background-color: #111827;
             color: white;
-            font-family: 'Raleway', sans-serif;
-            font-family:Verdana, Geneva, Tahoma, sans-serif;
+            font-family: "Outfit", serif;
         }
 
         .navbar {
-            background-color: #001f3f;
+            background-color: #1f2937;
             padding: 10px;
         }
 
         .main-div {
             margin: auto;
             width: 600px;
-            background: #003366;
+            background: #1f2937;
+            border-radius: 10px;
         }
 
         @media (max-width:635px) {
@@ -37,42 +39,59 @@
             }
         }
 
-        .navbar-brand {
-            font-weight: bold;
-            color: white;
-        }
-
         .bg-gradient {
-            background: linear-gradient(to right, #d90000, #ff5101);
-            -webkit-background-clip: text;
-            color: transparent;
+            font-family: "Signika Negative", sans-serif;
         }
 
         .video-container {
-            border: 2px solid #0074d9;
             padding: 10px;
-            margin: 20px 0;
+            margin: 10px 0 20px 0;
+        }
+
+        .play-div {
+            background: #3b82f6;
+            margin: 0 10px;
+            border-radius: 5px;
         }
 
         .player-controls {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
+            margin: auto;
+            margin-top: 2px;
             color: #ccc;
-            padding: 2px;
+            padding: 4px;
+            width: fit-content;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .player-controls:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        .Download-btn {
+            background: #3b82f6;
+            margin: 0 10px;
+            border-radius: 5px;
+            width: full;
+            margin-top: 20px;
+        }
+
+        .Video-div {
+            margin: 20px 0;
+            text-align: center;
+            font-size: smaller;
+
+        }
+
+        .contact-div {
+            text-align: center;
+            padding:10px 0 20px 0;
         }
 
         .footer {
-            background-color: #005f9e;
             padding: 20px;
             text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: #1f2937;
+            justify-content: space-between;
         }
 
         .footer a {
@@ -86,23 +105,26 @@
         }
 
         body {
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none; /* Firefox */
-            -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently supported by Chrome, Opera and Edge */
+            -webkit-user-select: none;
+            /* Safari */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently supported by Chrome, Opera and Edge */
         }
-
     </style>
 </head>
 
 <body>
     <header>
         <!-- Navbar -->
-        <nav class="navbar">
-            <div class="container-fluid text-center p-4 text-2xl ">
-                <a class="navbar-brand" href="#">
-                    <span class="bg-gradient" style="font-weight: 600;">
-                        NC Streaming
+        <nav class="navbar border-b border-gray-700 mb-4">
+            <div class="container-fluid text-center p-2 text-2xl">
+                <a class="navbar-brand" href="https://telegram.me/NC_Owner_bot">
+                    <span class="">
+                        NC STREAMING
                     </span>
                 </a>
             </div>
@@ -115,34 +137,32 @@
 
         <div>
             <!-- file Name -> to be displayed here  -->
-            <div class="justify-content-center align-items-center w-100 d-flex">
+            <div class="justify-content-center align-items-center w-100 d-flex p-2">
                 <div id="file-name" class="text-center">
-                    <p class="fw-bold">
-                        <span id="myDiv" class="h6 text-center card-title wow animate__animated animate__fadeInRight">
-                            {{file_name}}
-                        </span>
-                    </p>
+                    <span id="myDiv" class="text-center">
+                        {{file_name}}
+                    </span>
                 </div>
             </div>
             <!-- Online Video Player -> to be displayed here  -->
             <div class="justify-content-center align-items-center w-90 d-flex flex-wrap">
-                <div class="video-container wow animate__animated animate__fadeInLeft">
+                <div class="video-container ">
                     <video id="player" class="player" playsinline controls>
                         <source src="{{file_url}}" type="video/mp4">
                     </video>
                 </div>
             </div>
 
+
             <!-- External video player section -->
             <div class="">
                 <div class="">
-                    <div class="play-div">
-                        <p class="bg-gradient font-bold p-1 text-2xl text-center font-weight-bold ">
-                            Stream In These Players
+                    <div class="play-div" onclick="togglePlayerControls()">
+                        <p class="p-1 text-xl text-center">
+                            🚀 Stream 🚀
                         </p>
                     </div>
-                    <div
-                        class="col-lg-6 col-10 justify-center items-center flex-wrap pb-3 cursor-pointer gap-1 wow animate__animated animate__fadeIn">
+                    <div class="player-controls-container" style="display: none;">
                         <div onclick="vlc_player()" class="player-controls">
                             VLC Player
                         </div>
@@ -161,51 +181,41 @@
                         <div onclick="hd_player()" class="player-controls">
                             HD Player(4K)
                         </div>
-                        <br>
-                        <div onclick="lazyDownload()" class="player-controls ">
-                            Download Now
-                        </div>
-                        <br>
                     </div>
+                </div>
+            </div>
+
+            <div class=" Download-btn">
+                <div onclick="lazyDownload()" class="player-controls">
+                    <p class="text-white text-xl text-center">
+                        ⬇ Download Now ⬇
+                    </p>
                 </div>
             </div>
             <div class="justify-content-center align-items-center w-100 d-flex mb-3">
                 <div class="row d-flex w-100 justify-content-center align-items-center">
-                    <div
-                        class="col-lg-8 col-10 py-2 text-center bg-danger rounded-4 text-sm wow animate__animated animate__FadeIn">
-                        Video not playing? Possibly because your browser or the player doesn't support codec. Please
-                        download and watch.
+                    <div class="Video-div">
+                        If Video Not Playing Or Sound Not Coming then Choose Players that support The File Format.
                     </div>
                 </div>
             </div>
-            <div class="justify-content-center align-items-center w-100 d-flex mb-3">
-                <div class="row d-flex w-100 justify-content-center align-items-center">
-                    <div
-                        class="col-lg-5 col-10 py-2 text-center bg-success rounded-4 text-sm wow animate__animated animate__FadeIn">
-                        If you find any broken links then please contact <a href="#"
-                            class="text-[16px] font-bold underline active:text-blue-600">Nc</a>
-                    </div>
-                </div>
+            <div class="contact-div">
+                If link Not Working then please contact <a href="https://telegram.me/NC_Owner_bot"
+                    class="text-[16px] font-bold underline active:text-blue-600">NC Streaming</a>
             </div>
         </div>
+    </div>
 
-        <footer class="footer">
-            <div class="container-fluid justify-content-center align-items-center">
-
-                
-                    <div class="text-center text-xs p-3 dark:text-light text-light gap-2"
-                        style="background-color: rgba(0, 0, 0, 0.2);">
-                        ©
-                        <script type="text/JavaScript">
-                            var theDate = new Date()
-                            document.write(theDate.getFullYear())
-                        </script> Copyright :
-                        <a class="bg-clip-text text-[16px] text-transparent bg-gradient-to-r from-pink-500 to-violet-500 font-bold tracking-wide px-1"
-                            href="#">NC Streaming</a>
-
-                        All right reserved
-                    </div>
+    <div>
+        <footer class="footer border-t border-gray-700">
+            <div class="text-[16px] text-gray-500 p-1 gap-2">
+                All Right Reserved
+                <a class="" href="https://telegram.me/NC_Owner_bot">NC Streaming</a>
+                Made With love ❤️
+            </div>
         </footer>
+
+
 
         <script src="js/wow.min.js"></script>
         <script>
@@ -230,9 +240,7 @@
                 'volume',
                 'captions',
                 'settings',
-                'pip',
                 'airplay',
-                'download',
                 'fullscreen'
             ];
             document.addEventListener('DOMContentLoaded', () => {
@@ -289,15 +297,30 @@
                 window.location.href = openLazyLink;
             }
         </script>
+
+
+        <script>
+            function togglePlayerControls() {
+                const controlsContainer = document.querySelector('.player-controls-container');
+                if (controlsContainer.style.display === 'none') {
+                    controlsContainer.style.display = 'block';
+                } else {
+                    controlsContainer.style.display = 'none';
+                }
+            }
+        </script>
+
+
         <script>
             document.addEventListener('contextmenu', event => event.preventDefault());
-            document.addEventListener('keydown', function(event) {
+            document.addEventListener('keydown', function (event) {
                 if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
                     event.preventDefault();
                 }
             });
         </script>
-    </div>
+
+
 </body>
 
 </html>
