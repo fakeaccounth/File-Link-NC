@@ -46,6 +46,13 @@
             font-family: "Signika Negative", sans-serif;
         }
 
+        .Video-di {
+            margin: 10px 0;
+            text-align: center;
+            font-size:medium;
+
+        }
+
         .video-container {
             padding: 10px;
             margin: 10px 0 20px 0;
@@ -156,7 +163,11 @@
                 </div>
             </div>
 
-
+            
+                <div class="Video-di">
+                    Video not playing 1st refresh & Streaming may Slow wait until it loads.
+                </div>
+            
             <!-- External video player section -->
             <div class="">
                 <div class="">
@@ -210,13 +221,13 @@
     </div>
 
     <div>
-        <footer class="footer border-t border-gray-700">
+        <!-- <footer class="footer border-t border-gray-700">
             <div class="text-[14px] text-gray-500">
                 All Right Reserved
                 <a class="" href="https://telegram.me/NC_Owner_bot">NC Streaming</a>
                 Made With love ❤️
             </div>
-        </footer>
+        </footer> -->
 
 
 
@@ -236,8 +247,11 @@
         <script src="https://cdn.plyr.io/3.6.9/plyr.js"></script>
         <script>
             const controls = [
-                'play-large', 'play',
+                'play-large', 
+                'rewind','play',
+                'fast-forward', 
                 'progress',
+                'current-time',
                 'duration',
                 'mute',
                 'volume',
@@ -245,6 +259,7 @@
                 'settings',
                 'airplay',
                 'fullscreen'
+
             ];
             document.addEventListener('DOMContentLoaded', () => {
                 const player = Plyr.setup('.player', { controls });
